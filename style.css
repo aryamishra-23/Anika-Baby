@@ -2,111 +2,195 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family: 'Poppins', sans-serif;
 }
 
 body{
-background: linear-gradient(135deg,#0f0f0f,#1a1a2e,#111);
+
+font-family:'Poppins',sans-serif;
+min-height:100vh;
 color:white;
 display:flex;
 justify-content:center;
 align-items:center;
-min-height:100vh;
-padding:20px;
+padding:30px;
+
+/* animated gradient */
+
+background:linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#1a1a2e);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
 }
 
+@keyframes bg{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+
 .container{
+
 max-width:1100px;
 width:100%;
 text-align:center;
+
 }
 
+
+/* Heading */
+
 header h1{
+
+font-family:'Pacifico',cursive;
 font-size:3rem;
-letter-spacing:2px;
-background:linear-gradient(45deg,#ff7eb3,#ff758c,#ffd86f);
+margin-bottom:10px;
+background:linear-gradient(45deg,#ff9a9e,#fad0c4,#ffd1ff);
 -webkit-background-clip:text;
 color:transparent;
-margin-bottom:10px;
+
+}
+
+header span{
+
+color:#ff9bd2;
+
 }
 
 .subtitle{
-color:#aaa;
-font-size:1.1rem;
-margin-bottom:30px;
+
+color:#ddd;
+margin-bottom:40px;
+
 }
 
+
+/* Parents Card */
+
 .parents{
-background:#1c1c2b;
+
+background:rgba(255,255,255,0.07);
+backdrop-filter:blur(10px);
 padding:25px;
-border-radius:12px;
-margin-bottom:25px;
-box-shadow:0 0 20px rgba(255,255,255,0.05);
+border-radius:15px;
+margin-bottom:30px;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+
 }
 
 .parents h2{
+
+color:#ffd6e7;
 margin-bottom:10px;
-color:#ffd86f;
+
 }
+
+
+/* Message */
 
 .message{
+
 font-size:1.2rem;
-margin-bottom:35px;
 line-height:1.7;
-color:#ddd;
+margin-bottom:40px;
+color:#eee;
+
 }
 
-.message span{
-color:#ff7eb3;
-font-weight:bold;
+.babyname{
+
+color:#ff9bd2;
+font-weight:600;
+
 }
+
+
+/* Gallery */
 
 .gallery h2{
+
 margin-bottom:25px;
-color:#ffb6c1;
+color:#ffc6f0;
+
 }
 
 .images{
+
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+gap:25px;
+
 }
 
-.img-box{
-overflow:hidden;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.6);
-transition:0.4s;
-}
+.images img{
 
-.img-box img{
 width:100%;
-height:100%;
+height:260px;
 object-fit:cover;
-display:block;
+border-radius:18px;
 transition:0.5s;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+
 }
 
-.img-box:hover img{
-transform:scale(1.1);
+.images img:hover{
+
+transform:scale(1.08);
+box-shadow:0 15px 40px rgba(255,105,180,0.6);
+
 }
+
+
+/* Footer */
 
 footer{
+
 margin-top:40px;
-color:#888;
+color:#ccc;
 font-size:0.9rem;
+
 }
+
+
+/* Floating Hearts */
+
+.hearts::before,
+.hearts::after{
+
+content:"💖 💗 💕 💞 💓";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+font-size:25px;
+opacity:0.15;
+animation:float 25s linear infinite;
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-100vh);}
+
+}
+
 
 /* Responsive */
 
 @media(max-width:768px){
 
 header h1{
-font-size:2.2rem;
+font-size:2rem;
 }
 
 .message{
 font-size:1rem;
+}
+
+.images img{
+height:200px;
 }
 
 }
